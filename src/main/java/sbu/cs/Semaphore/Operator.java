@@ -10,7 +10,8 @@ public class Operator extends Thread {
     public void run() {
         for (int i = 0; i < 10; i++)
         {
-            Resource.accessResource();         // critical section - a Maximum of 2 operators can access the resource concurrently
+            Resource.runAccessResource();// critical section - a Maximum of 2 operators can access the resource concurrently
+            System.out.println(getName());
             try {
                 sleep(500);
             } catch (InterruptedException e) {

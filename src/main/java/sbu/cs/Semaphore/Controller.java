@@ -29,5 +29,13 @@ public class Controller {
         operator3.start();
         operator4.start();
         operator5.start();
+        try {
+            operator1.join();
+            operator2.join();
+            operator3.join();
+            operator4.join();
+            operator5.join();
+        }catch (InterruptedException e){
+        }
     }
 }

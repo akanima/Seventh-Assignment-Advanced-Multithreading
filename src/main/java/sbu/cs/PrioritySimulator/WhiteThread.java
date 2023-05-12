@@ -1,7 +1,12 @@
 package sbu.cs.PrioritySimulator;
 
-public class WhiteThread extends ColorThread {
+import java.util.concurrent.CountDownLatch;
 
+public class WhiteThread extends ColorThread {
+    private CountDownLatch latch;
+    public WhiteThread(CountDownLatch latch){
+        this.latch=latch;
+    }
     private static final String MESSAGE = "hi finished blacks, hi finished blues!";
 
     void printMessage() {
@@ -15,6 +20,7 @@ public class WhiteThread extends ColorThread {
 
     @Override
     public void run() {
-        // TODO call printMessage
+        printMessage();
+        latch.countDown();
     }
 }
